@@ -1593,7 +1593,7 @@
         )
     }
     ```
-  
+   
   - ```jsx
     // 올바른 사용법
     usecontext(MyContext);
