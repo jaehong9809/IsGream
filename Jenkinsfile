@@ -14,7 +14,6 @@ pipeline {
 
         stage('Set Permissions') {
             steps {
-                // Gradle 및 Node.js 실행 권한 설정
                 dir('Backend/IsCream') {
                     sh 'chmod +x ./gradlew'
                 }
@@ -35,17 +34,27 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('Frontend/IsCream') {
-                    sh 'rm -rf node_modules package-lock.json'  // 기존 설치 파일 삭제
-                    sh 'npm install'  // 새로 설치
-                    sh 'npm run build' // 빌드 실행
+                    sh 'rm -rf node_modules package-lock.json'
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Stop Existing Containers') {
+            steps {
+                script {
+                    sh '''
+                        docker ps -q --filter "name=backend-app" | xargs -r docker stop
+                        docker ps -aq --filter "name=backend-app" | xargs -r docker rm
+                    '''
                 }
             }
         }
 
         stage('Docker Compose Up') {
             steps {
-                // Docker Compose로 백엔드와 프론트엔드 실행
-                sh 'docker-compose down || true'
+                sh 'docker-compose down'
                 sh 'docker-compose up -d --build'
             }
         }
