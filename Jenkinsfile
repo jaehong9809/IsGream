@@ -35,9 +35,14 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                dir('Frontend/IsCream') {
-                    sh 'npm run build'
+            dir('Frontend/IsCream') {
+                script {
+                    docker.image('node:18-alpine').inside {
+                        sh 'npm install'
+                        sh 'npm run build'
+                    }
                 }
+            }
             }
         }
 
