@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # 기본 포트 노출
-EXPOSE 5173  # Vite 기본 포트, 필요 시 변경 가능
+EXPOSE 5173
 
 # 개발 서버 실행
 CMD ["npm", "run", "dev"]
