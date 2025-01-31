@@ -1,5 +1,5 @@
-# Node.js 빌드 환경 설정
-FROM node:18-alpine AS build
+# Node.js 실행 환경 설정
+FROM node:18-alpine
 
 # 작업 디렉토리 설정
 WORKDIR /app
@@ -8,9 +8,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# 소스 코드 복사 및 빌드
+# 전체 소스 복사
 COPY . .
-RUN npm run build
 
-# 실행 환경 설정
-CMD ["npm", "start"]
+# 기본 포트 노출
+EXPOSE 5173  # Vite 기본 포트, 필요 시 변경 가능
+
+# 개발 서버 실행
+CMD ["npm", "run", "dev"]
