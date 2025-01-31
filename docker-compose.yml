@@ -3,7 +3,7 @@ version: '3.9'
 services:
   backend:
     build:
-      context: ./Backend
+      context: ./Backend/IsCream
       dockerfile: Dockerfile
     container_name: backend-app
     ports:
@@ -13,7 +13,7 @@ services:
 
   frontend:
     build:
-      context: ./Frontend
+      context: ./Frontend/IsCream
       dockerfile: Dockerfile
     container_name: frontend-app
     ports:
