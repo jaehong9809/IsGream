@@ -15,10 +15,10 @@ pipeline {
         stage('Set Permissions') {
             steps {
                 // Gradle 및 Node.js 실행 권한 설정
-                dir('backend/IsCream') {
+                dir('Backend/IsCream') {
                     sh 'chmod +x ./gradlew'
                 }
-                dir('frontend/Iscream') {
+                dir('Frontend/Iscream') {
                     sh 'chmod +x ./node_modules/.bin/* || true'
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Build Backend') {
             steps {
-                dir('backend/Iscream') {
+                dir('Backend/Iscream') {
                     sh './gradlew clean build'
                 }
             }
@@ -34,7 +34,7 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                dir('frontend/Iscream') {
+                dir('Frontend/Iscream') {
                     sh 'npm install'
                     sh 'npm run build'
                 }
