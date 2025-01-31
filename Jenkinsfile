@@ -18,7 +18,7 @@ pipeline {
                 dir('Backend/IsCream') {
                     sh 'chmod +x ./gradlew'
                 }
-                dir('Frontend/Iscream') {
+                dir('Frontend/IsCream') {
                     sh 'npm install'
                     sh 'chmod +x ./node_modules/.bin/* || true'
                 }
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Build Backend') {
             steps {
-                dir('Backend/Iscream') {
+                dir('Backend/IsCream') {
                     sh './gradlew clean build'
                 }
             }
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                dir('Frontend/Iscream') {
+                dir('Frontend/IsCream') {
                     sh 'npm run build'
                 }
             }
