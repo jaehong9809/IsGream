@@ -19,7 +19,6 @@ pipeline {
                     sh 'chmod +x ./gradlew'
                 }
                 dir('Frontend/IsCream') {
-                    sh 'npm install'
                     sh 'chmod +x ./node_modules/.bin/* || true'
                 }
             }
@@ -36,7 +35,9 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('Frontend/IsCream') {
-                    sh 'npm run build'
+                    sh 'rm -rf node_modules package-lock.json'  // 기존 설치 파일 삭제
+                    sh 'npm install'  // 새로 설치
+                    sh 'npm run build' // 빌드 실행
                 }
             }
         }
