@@ -5,11 +5,11 @@ FROM node:18-alpine AS build
 WORKDIR /app
 
 # package.json 복사 및 의존성 설치
-COPY 프로젝트폴더/package*.json ./
+COPY IsCream/package*.json ./
 RUN npm install
 
 # 소스 코드 복사 및 빌드
-COPY 프로젝트폴더/ .
+COPY IsCream/ .
 RUN npm run build
 
 # NGINX로 정적 파일 서빙
