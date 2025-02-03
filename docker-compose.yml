@@ -18,3 +18,11 @@ services:
     container_name: frontend-app
     ports:
       - "80:80"
+
+  ai-server:
+    build:
+      context: ./AI
+      dockerfile: Dockerfile
+    container_name: ai-server
+    ports:
+      - "8000:8000"
