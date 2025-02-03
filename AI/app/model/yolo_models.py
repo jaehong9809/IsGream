@@ -1,26 +1,21 @@
 import torch
 from pathlib import Path
+import platform
 
-# house
-house_path = Path(__file__).resolve().parent.parent / "model" / "house.pt"
-if not house_path.exists():
-    raise FileNotFoundError(f"Model file not found at {house_path}")
-house_model = torch.hub.load('ultralytics/yolov5', 'custom', path=str(house_path), force_reload=True)
+# 운영체제에 따라 모델 경로 설정
+if platform.system() == "Windows":
+    LOCAL_MODEL_DIR = Path("C:/models")  # Windows에서의 모델 경로
+else:  # Linux(Ubuntu)일 경우
+    LOCAL_MODEL_DIR = Path("/home/ubuntu/models")  # EC2 Ubuntu 서버의 모델 경로
 
-# tree
-tree_path = Path(__file__).resolve().parent.parent / "model" / "tree.pt"
-if not tree_path.exists():  # 'house_path' -> 'tree_path'
-    raise FileNotFoundError(f"Model file not found at {tree_path}")
-tree_model = torch.hub.load('ultralytics/yolov5', 'custom', path=str(tree_path), force_reload=True)
+def load_model(model_name):
+    model_path = LOCAL_MODEL_DIR / f"{model_name}.pt"
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model file not found at {model_path}")
+    return torch.hub.load('ultralytics/yolov5', 'custom', path=str(model_path), force_reload=True)
 
-# male
-male_path = Path(__file__).resolve().parent.parent / "model" / "male.pt"
-if not male_path.exists():  # 'house_path' -> 'male_path'
-    raise FileNotFoundError(f"Model file not found at {male_path}")
-male_model = torch.hub.load('ultralytics/yolov5', 'custom', path=str(male_path), force_reload=True)
-
-# female
-female_path = Path(__file__).resolve().parent.parent / "model" / "female.pt"
-if not female_path.exists():  # 'house_path' -> 'female_path'
-    raise FileNotFoundError(f"Model file not found at {female_path}")
-female_model = torch.hub.load('ultralytics/yolov5', 'custom', path=str(female_path), force_reload=True)
+# 모델 로드
+house_model = load_model("house")
+tree_model = load_model("tree")
+male_model = load_model("male")
+female_model = load_model("female")
