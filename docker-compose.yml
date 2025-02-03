@@ -26,5 +26,5 @@ services:
     container_name: ai-server
     ports:
       - "8000:8000"
-    environment:
-      - GITHUB_TOKEN=TNJWThbyqhFZa7ByXYMc
+    volumes:
+      - /home/ubuntu/models:/home/ubuntu/models  # 모델 경로 마운트
