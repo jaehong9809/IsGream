@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import yolo_service
+from .routers import yolo_service
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
