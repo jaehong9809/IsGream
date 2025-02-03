@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import yolo_service
+from routers import yolo_service
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 # FastAPI 애플리케이션 생성
 app = FastAPI()
@@ -24,8 +26,3 @@ async def read_root():
     return {"message": "Hello, FastAPI with CORS!"}
 
 
-# FastAPI 실행
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="127.0.0.1", port=8000)
