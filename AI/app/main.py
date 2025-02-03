@@ -7,7 +7,6 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # FastAPI 애플리케이션 생성
 app = FastAPI()
 
-# CORS 미들웨어 추가
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # 모든 도메인 허용
