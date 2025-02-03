@@ -26,3 +26,5 @@ services:
     container_name: ai-server
     ports:
       - "8000:8000"
+    environment:
+      - GITHUB_TOKEN=TNJWThbyqhFZa7ByXYMc
