@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import yolo_service
+from app.routers import yolo_service
 
 # FastAPI 애플리케이션 생성
 app = FastAPI()
