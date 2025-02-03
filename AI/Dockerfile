@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 8000
 
 # FastAPI 실행 (uvicorn)
-CMD ["uvicorn", "app.main:app","--port", "8000", "--workers", "4"]
+CMD ["uvicorn", "app.main:app","--port", "8000"]
