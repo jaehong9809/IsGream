@@ -27,4 +27,4 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - ./AI/.env
+      - GITHUB_TOKEN=TNJWThbyqhFZa7ByXYMc
