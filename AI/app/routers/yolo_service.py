@@ -4,9 +4,9 @@ from PIL import Image
 import requests
 from io import BytesIO
 from pathlib import Path
-from app.schemas.image import PredictionRequest
-from app.model.yolo_models import house_model, tree_model, male_model, female_model
-from app.core.core import diagnose
+from schemas.image import PredictionRequest
+from model.yolo_models import house_model, tree_model, male_model, female_model
+from core.core import diagnose
 router = APIRouter()
 
 model_path = Path(__file__).resolve().parent.parent / "model" / "best.pt"
