@@ -64,3 +64,6 @@ docker-compose.override.yml
 *.zip
 *.tar.gz
 *.rar
+
+# 모든 runs 디렉터리 무시
+**/runs/
