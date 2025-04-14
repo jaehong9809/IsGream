@@ -40,6 +40,8 @@
 
 [이재홍]
 
+- 심리 검사 로직 Spring 서버 개발
+- AI 모델 FastAPI 서버 개발발
 - Yolo v8과 RAG 기반의 HTP 검사
 - CI/CD 파이프라인 구축 및 배포 자동화
 
@@ -63,6 +65,8 @@
 ![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=flat-square&logo=socketdotio&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-3178C6?style=flat-square&logo=chainlink&logoColor=white)
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+![ChatGPT](https://img.shields.io/badge/yolo-74aa9c?style=for-the-badge&logo=yolo&logoColor=white)
+
 ## 📝 목차
 - [개요](#-개요)
 - [Pain Point](#-pain-point)
